@@ -3,9 +3,9 @@ package br.com.cast.turmaformacao.agenda.model.entities;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Phone implements Parcelable{
+public class Phone implements Parcelable {
 	private Integer id;
-	private Integer contactId;
+	private Contact contact;
 	private Integer phoneNumber;
 
 	public Phone() {
@@ -13,7 +13,7 @@ public class Phone implements Parcelable{
 
 	protected Phone(Parcel in) {
 		id = in.readInt();
-		contactId = in.readInt();
+		contact = in.readParcelable(Contact.class.getClassLoader());
 		phoneNumber = in.readInt();
 	}
 
@@ -37,12 +37,12 @@ public class Phone implements Parcelable{
 		id = $Id;
 	}
 
-	public Integer getContactId() {
-		return contactId;
+	public Contact getContact() {
+		return contact;
 	}
 
-	public void setContactId(Integer $ContactId) {
-		contactId = $ContactId;
+	public void setContact(Contact $Contact) {
+		contact = $Contact;
 	}
 
 	public Integer getPhoneNumber() {
@@ -61,7 +61,7 @@ public class Phone implements Parcelable{
 		Phone phone = (Phone) o;
 
 		if (id != null ? !id.equals(phone.id) : phone.id != null) return false;
-		if (contactId != null ? !contactId.equals(phone.contactId) : phone.contactId != null)
+		if (contact != null ? !contact.equals(phone.contact) : phone.contact != null)
 			return false;
 		return !(phoneNumber != null ? !phoneNumber.equals(phone.phoneNumber) : phone.phoneNumber != null);
 
@@ -70,7 +70,7 @@ public class Phone implements Parcelable{
 	@Override
 	public int hashCode() {
 		int result = id != null ? id.hashCode() : 0;
-		result = 31 * result + (contactId != null ? contactId.hashCode() : 0);
+		result = 31 * result + (contact != null ? contact.hashCode() : 0);
 		result = 31 * result + (phoneNumber != null ? phoneNumber.hashCode() : 0);
 		return result;
 	}
@@ -79,7 +79,7 @@ public class Phone implements Parcelable{
 	public String toString() {
 		return "Phone{" +
 				"id=" + id +
-				", contactId=" + contactId +
+				", contact=" + contact +
 				", phoneNumber=" + phoneNumber +
 				'}';
 	}
@@ -91,8 +91,8 @@ public class Phone implements Parcelable{
 
 	@Override
 	public void writeToParcel(Parcel dest, int flags) {
-		dest.writeInt(id);
-		dest.writeInt(contactId);
+		dest.writeInt(id != null ? id : -1);
+		dest.writeParcelable(contact, flags);
 		dest.writeInt(phoneNumber);
 	}
 }

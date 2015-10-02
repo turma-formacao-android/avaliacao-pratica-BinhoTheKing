@@ -3,19 +3,17 @@ package br.com.cast.turmaformacao.agenda.model.entities;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-/**
- * Created by Administrador on 01/10/2015.
- */
-public class Email implements Parcelable{
+public class Email implements Parcelable {
 	private Integer id;
-	private Integer contactId;
+	private Contact contact;
 	private String email;
 
-	public Email() {}
+	public Email() {
+	}
 
 	protected Email(Parcel in) {
 		id = in.readInt();
-		contactId = in.readInt();
+		contact = in.readParcelable(Contact.class.getClassLoader());
 		email = in.readString();
 	}
 
@@ -39,12 +37,12 @@ public class Email implements Parcelable{
 		id = $Id;
 	}
 
-	public Integer getContactId() {
-		return contactId;
+	public Contact getContact() {
+		return contact;
 	}
 
-	public void setContactId(Integer $ContactId) {
-		contactId = $ContactId;
+	public void setContact(Contact $Contact) {
+		contact = $Contact;
 	}
 
 	public String getEmail() {
@@ -63,7 +61,7 @@ public class Email implements Parcelable{
 		Email email1 = (Email) o;
 
 		if (id != null ? !id.equals(email1.id) : email1.id != null) return false;
-		if (contactId != null ? !contactId.equals(email1.contactId) : email1.contactId != null)
+		if (contact != null ? !contact.equals(email1.contact) : email1.contact != null)
 			return false;
 		return !(email != null ? !email.equals(email1.email) : email1.email != null);
 
@@ -72,7 +70,7 @@ public class Email implements Parcelable{
 	@Override
 	public int hashCode() {
 		int result = id != null ? id.hashCode() : 0;
-		result = 31 * result + (contactId != null ? contactId.hashCode() : 0);
+		result = 31 * result + (contact != null ? contact.hashCode() : 0);
 		result = 31 * result + (email != null ? email.hashCode() : 0);
 		return result;
 	}
@@ -81,7 +79,7 @@ public class Email implements Parcelable{
 	public String toString() {
 		return "Email{" +
 				"id=" + id +
-				", contactId=" + contactId +
+				", contact=" + contact +
 				", email='" + email + '\'' +
 				'}';
 	}
@@ -93,8 +91,8 @@ public class Email implements Parcelable{
 
 	@Override
 	public void writeToParcel(Parcel dest, int flags) {
-		dest.writeInt(id);
-		dest.writeInt(contactId);
+		dest.writeInt(id != null ? id : -1);
+		dest.writeParcelable(contact, flags);
 		dest.writeString(email);
 	}
 }

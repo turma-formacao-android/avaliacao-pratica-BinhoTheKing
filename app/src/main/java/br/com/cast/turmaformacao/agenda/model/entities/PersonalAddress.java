@@ -6,10 +6,10 @@ import android.os.Parcelable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class PersonalAddress implements Parcelable{
+public class PersonalAddress implements Parcelable {
 	@JsonIgnoreProperties(ignoreUnknown = true)
 	@JsonProperty("cep")
-	private Integer cep;
+	private Integer zipCode;
 
 	@JsonProperty("bairro")
 	private String neighborhood;
@@ -23,7 +23,8 @@ public class PersonalAddress implements Parcelable{
 	@JsonProperty("estado")
 	private String state;
 
-	public PersonalAddress(){}
+	public PersonalAddress() {
+	}
 
 	protected PersonalAddress(Parcel in) {
 		neighborhood = in.readString();
@@ -44,12 +45,12 @@ public class PersonalAddress implements Parcelable{
 		}
 	};
 
-	public Integer getCep() {
-		return cep;
+	public Integer getZipCode() {
+		return zipCode;
 	}
 
-	public void setCep(Integer $Cep) {
-		cep = $Cep;
+	public void setZipCode(Integer $ZipCode) {
+		zipCode = $ZipCode;
 	}
 
 	public String getNeighborhood() {
@@ -104,7 +105,7 @@ public class PersonalAddress implements Parcelable{
 
 		PersonalAddress that = (PersonalAddress) o;
 
-		if (!cep.equals(that.cep)) return false;
+		if (!zipCode.equals(that.zipCode)) return false;
 		if (neighborhood != null ? !neighborhood.equals(that.neighborhood) : that.neighborhood != null)
 			return false;
 		if (city != null ? !city.equals(that.city) : that.city != null) return false;
@@ -115,7 +116,7 @@ public class PersonalAddress implements Parcelable{
 
 	@Override
 	public int hashCode() {
-		int result = cep.hashCode();
+		int result = zipCode.hashCode();
 		result = 31 * result + (neighborhood != null ? neighborhood.hashCode() : 0);
 		result = 31 * result + (city != null ? city.hashCode() : 0);
 		result = 31 * result + (street != null ? street.hashCode() : 0);
@@ -126,7 +127,7 @@ public class PersonalAddress implements Parcelable{
 	@Override
 	public String toString() {
 		return "PersonalAddress{" +
-				"cep=" + cep +
+				"zipCode=" + zipCode +
 				", neighborhood='" + neighborhood + '\'' +
 				", city='" + city + '\'' +
 				", street='" + street + '\'' +

@@ -90,7 +90,7 @@ public class Contact implements Parcelable {
 
 	@Override
 	public void writeToParcel(Parcel dest, int flags) {
-		dest.writeInt(id);
+		dest.writeInt(id != null ? id : -1);
 		dest.writeString(name);
 		dest.writeParcelableArray(phones, flags);
 		dest.writeParcelableArray(emails, flags);
