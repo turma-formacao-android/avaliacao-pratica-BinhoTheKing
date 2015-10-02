@@ -56,7 +56,7 @@ public class EmailContract {
 		return email;
 	}
 
-	public static List<Email> getPhones (Cursor $Cursor){
+	public static List<Email> getEmails (Cursor $Cursor){
 		List<Email> emails = new ArrayList<>();
 
 		while ($Cursor.moveToNext()) {
