@@ -8,10 +8,13 @@ public class Contact implements Parcelable {
 	private String name;
 	private Phone[] phones;
 	private Email[] emails;
-	private String socials;
+	private Social[] socials;
 	private PersonalAddress address;
 
+	public static String PARAM_CONTACT = "CONTACT";
+
 	public Contact() {
+		address = new PersonalAddress();
 	}
 
 	protected Contact(Parcel in) {
@@ -19,7 +22,7 @@ public class Contact implements Parcelable {
 		name = in.readString();
 		phones = (Phone[]) in.readParcelableArray(Phone.class.getClassLoader());
 		emails = (Email[]) in.readParcelableArray(Email.class.getClassLoader());
-		socials = in.readString();
+		socials = (Social[]) in.readParcelableArray(Social.class.getClassLoader());
 		address = in.readParcelable(PersonalAddress.class.getClassLoader());
 	}
 
@@ -67,11 +70,11 @@ public class Contact implements Parcelable {
 		emails = $Emails;
 	}
 
-	public String getSocials() {
+	public Social[] getSocials() {
 		return socials;
 	}
 
-	public void setSocials(String $Socials) {
+	public void setSocials(Social[] $Socials) {
 		socials = $Socials;
 	}
 
@@ -94,7 +97,7 @@ public class Contact implements Parcelable {
 		dest.writeString(name);
 		dest.writeParcelableArray(phones, flags);
 		dest.writeParcelableArray(emails, flags);
-		dest.writeString(socials);
+		dest.writeParcelableArray(socials, flags);
 		dest.writeParcelable(address, flags);
 	}
 

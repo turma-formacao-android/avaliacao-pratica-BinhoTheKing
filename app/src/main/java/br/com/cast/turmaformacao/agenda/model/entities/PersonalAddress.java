@@ -128,10 +128,10 @@ public class PersonalAddress implements Parcelable {
 	public String toString() {
 		return "PersonalAddress{" +
 				"zipCode=" + zipCode +
-				", neighborhood='" + neighborhood + '\'' +
-				", city='" + city + '\'' +
-				", street='" + street + '\'' +
 				", state='" + state + '\'' +
+				", city='" + city + '\'' +
+				", neighborhood='" + neighborhood + '\'' +
+				", street='" + street + '\'' +
 				'}';
 	}
 }
