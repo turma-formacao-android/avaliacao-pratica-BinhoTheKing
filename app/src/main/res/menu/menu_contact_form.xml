@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context=".ContactFormActivity">
+    <item
+        android:id="@+id/menuAdd"
+        android:title="@string/lvl_save"
+        android:icon="@drawable/abc_btn_check_to_on_mtrl_015"
+        app:showAsAction="always"/>
+</menu>

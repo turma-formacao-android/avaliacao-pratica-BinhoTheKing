@@ -2,8 +2,11 @@ package br.com.cast.turmaformacao.agenda.model.entities;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.text.Editable;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnoreType;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class PersonalAddress implements Parcelable {
@@ -27,6 +30,7 @@ public class PersonalAddress implements Parcelable {
 	}
 
 	protected PersonalAddress(Parcel in) {
+		zipCode = in.readInt();
 		neighborhood = in.readString();
 		city = in.readString();
 		street = in.readString();
@@ -92,6 +96,7 @@ public class PersonalAddress implements Parcelable {
 
 	@Override
 	public void writeToParcel(Parcel dest, int flags) {
+		dest.writeInt(zipCode);
 		dest.writeString(neighborhood);
 		dest.writeString(city);
 		dest.writeString(street);
@@ -134,4 +139,7 @@ public class PersonalAddress implements Parcelable {
 				", street='" + street + '\'' +
 				'}';
 	}
+
+
+
 }

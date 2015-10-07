@@ -5,10 +5,11 @@
 
     <item
         android:id="@+id/actionFilter"
-        android:title="Filtrar"
-        app:showAsAction="always"/>
+        android:title="@string/lbl_filter"
+        android:icon="@drawable/ic_action_action_search"
+        app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/menuAdd"
-        android:title="Add"
-        app:showAsAction="always"/>
+        android:title="@string/lbl_add"
+        app:showAsAction="ifRoom"/>
 </menu>

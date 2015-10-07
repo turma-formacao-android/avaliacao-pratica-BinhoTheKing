@@ -11,6 +11,8 @@
         android:id="@+id/textViewContactName"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_toRightOf="@id/imageViewContact"/>
+        android:gravity="left|center_vertical"
+        android:layout_toRightOf="@id/imageViewContact"
+        android:layout_toEndOf="@+id/imageViewContact"/>
 
 </RelativeLayout>

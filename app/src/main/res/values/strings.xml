@@ -7,10 +7,14 @@
     <string name="lbl_name">Name</string>
     <string name="lbl_phone">Phone</string>
     <string name="lbl_email">Email</string>
-    <string name="lbl_social">Social Network Url</string>
+    <string name="lbl_social_url">Social Network Url</string>
     <string name="lbl_zip_code">Zip Code</string>
     <string name="lbl_city">City</string>
     <string name="lbl_uf">UF</string>
     <string name="lbl_neighbor">Neighborhood</string>
     <string name="lbl_street">Street</string>
+    <string name="lbl_add">Add</string>
+    <string name="lbl_filter">Filter</string>
+    <string name="lvl_save">Save</string>
+    <string name="lbl_social">Social</string>
 </resources>

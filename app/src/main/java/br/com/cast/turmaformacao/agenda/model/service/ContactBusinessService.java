@@ -13,7 +13,7 @@ public class ContactBusinessService {
 		return ContactRepository.getAll();
 	}
 
-	public static void save(Contact $Contact) {
+	private static void save(Contact $Contact) {
 		ContactRepository.save($Contact);
 	}
 
@@ -21,7 +21,7 @@ public class ContactBusinessService {
 		ContactRepository.delete($Contact.getId());
 	}
 
-	public static void update(Contact $Contact) {
+	private static void update(Contact $Contact) {
 		ContactRepository.update($Contact);
 	}
 
